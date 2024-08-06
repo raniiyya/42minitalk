@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:51:53 by rdavurov          #+#    #+#             */
-/*   Updated: 2024/08/06 07:01:00 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/06 08:25:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ void    setup_signal_handlers(void)
     struct sigaction    sa1;
     struct sigaction    sa2;
 
-    sa1.sa_handler = sig_usr1;
-    sigemptyset(&sa1.sa_mask);
-    sa1.sa_flags = 0;
-    sa2.sa_handler = sig_usr2;
+    sa1.sa_handler = sig_usr1; //when the program receives a SIGUSR1 signal, it will call the sig_usr1 function
+    sigemptyset(&sa1.sa_mask); //initializes the signal set to empty, so that no signals are blocked
+    sa1.sa_flags = 0; //no flags are set
+    sa2.sa_handler = sig_usr2; 
     sigemptyset(&sa2.sa_mask);
     sa2.sa_flags = 0;
-    sigaction(SIGUSR1, &sa1, NULL);
-    sigaction(SIGUSR2, &sa2, NULL);
+    sigaction(SIGUSR1, &sa1, NULL); //sets the signal handler for SIGUSR1 to sa1
+    sigaction(SIGUSR2, &sa2, NULL); //sets the signal handler for SIGUSR2 to sa2
 }
 
 int main(void) {
