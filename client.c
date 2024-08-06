@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:52:12 by rdavurov          #+#    #+#             */
-/*   Updated: 2024/08/06 06:10:26 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/06 19:26:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    send_signal(int pid, char c)
         else
             kill(pid, SIGUSR2); //if the last bit is 0, send SIGUSR2
         c >>= 1; //shift the bits to the right
-        usleep(100);
+        usleep(450);
         i++;
     }
 }
