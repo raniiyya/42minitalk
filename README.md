@@ -38,25 +38,35 @@
 2. Compile the project
    ```bash
    make
+   ```
+   The server will display its Process ID (PID). Note this PID for the client.
 3. Start the server
    ```bash
    ./server
 4. Send a message using the client
    ```bash
    ./client <server_pid> "Your message here"
+   ```
+   Replace `<server_pid>` with the PID displayed by the server.
 
 ---
 
-## How it works
+## How It Works
 
 1. The **server** runs continuously, waiting for incoming signals.
-2. The **client** sends characters to the server by encoding them as binary using SIGUSR1 (0) and SIGUSR2 (1) signals.
+2. The **client** sends characters to the server by encoding them as binary using `SIGUSR1` (0) and `SIGUSR2` (1) signals.
 3. The **server** decodes the signals and reconstructs the original message, displaying it in the terminal.
 
 ---
 
-## Project rules
+## Project Rules
 
-- The project uses only SIGUSR1 and SIGUSR2 for communication.
+- The project uses only `SIGUSR1` and `SIGUSR2` for communication.
 - Signal-based communication ensures minimal CPU usage through pause() and usleep() calls.
 - The server must handle multiple messages consecutively without restarting.
+
+---
+
+## License
+
+This project is for educational purposes under the 42 Network. Redistribution is prohibited without prior authorization.
